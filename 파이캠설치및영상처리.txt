@@ -1,0 +1,11 @@
+https://kocoafab.cc/tutorial/view/334     //파이캠 관련
+http://forums.rasplay.org/topic/164/%EC%A7%88%EB%AC%B8-%ED%8C%8C%EC%9D%B4-%EC%B9%B4%EB%A9%94%EB%9D%BC-%EC%98%A4%EB%A5%98/24   //문제 발생 시 업데이트를 통해 해결
+
+*라즈베리파이 아나콘다(미니) 설치 (걍해봄)
+https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b
+
+*영상처리
+http://webnautes.tistory.com/916 // opencv설치 및 종합 정보 다 있음 
+https://wikidocs.net/3188 // 라즈베리 파이에서 영상 재생하기
+https://junistory.blogspot.com/2017/08/nano.html //나노 에디터 단축키
+http://webnautes.tistory.com/792  // 파이썬으로 opencv 켜보기

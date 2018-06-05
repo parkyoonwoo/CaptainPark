@@ -1,0 +1,53 @@
+https://terms.naver.com/entry.nhn?docId=3580149&cid=59088&categoryId=59096 //깃허브 개념
+https://opentutorials.org/course/1492  //깃 강의(생활코딩)
+
+* Version control system
+파일의 이름을 더럽히지 않는 버전관리 (최종, 최종의 최종, 최종의 최종의 진짜 최종..)
+소중한 소스코드를 백업해서 만약의 사태에 대비
+코드를 이전 상태로 쉽게 돌아가고
+다른 사람과 협업이 쉽다
+CVS ->  SVN -> 오늘 날 가장 많은 사람들이 사용하는 버전컨트롤 시스템 = GIT
+아주편리하지만 어렵다, 필요없는 경우도 있다
+깃 버전 컨트롤 시스템은 개어렵다 / 필요할 때마다 공부 필요
+
+*원격저장소
+직접 구축하는 일은 어렵다 -> 원격 저장소 제공하는 서비스 = 깃허브
+
+*깃허브 시작
+오픈소스 프로젝트 작업장
+https://github.com/git/git
+fork 버튼 누르면 이 프로젝트는 우리 것이 된다. -> 이 프로젝트를 맘대로 수정가능 -> 내 것으로 복제된 소스코드를 맘대로 수정 가능(라이센스 따라서)
+디렉토리로 이동 ->  git clone 주소 폴더명 //해당 폴더명으로 원격저장소 주소에 있는 프로젝트를 복제함
+git log // 깃의 commit(버전)을 확인가능
+git checkout 커밋내용 -> 브랜치가 바뀜
+
+*원격저장소 만들고 지역 저장소에서 작업한 내용을 원격 저장소로 올리는 방법
+https://opentutorials.org/course/2708/15427
+깃허브 -> 뉴리포시토리-> 퍼블릭(오픈소스) -> 파일에 대한 설명은 README.MD -> HTTPS -> 생성된 주소가 방금 생성된 저장소주소
+-> 로컬에서 만든 프로젝트를 원격저장소로 올리기 -> mkdir gotohell -> cd gotohell -> git init . //'.'즉 현재디렉토리에 프로젝트 생성
+-> vim f1.txt ->git add f1.txt -> git commit -m '1' // 첫번째 커밋 생성 -> 
+깃허브로 이동 -> git remote add origin 주소 복사 //원격저장소(remote)를 add(연결)시키고 주소는 다음과 같다. 주소가 기니까
+오리진으로 별명을 짓는다. -> git remote -> orgin 출력(orgin이라는 원격저장소가 생성됐다)
+-> 여러 원격저장소로 자신이 작성 한 프로젝트를 보낼 수 있다.
+-> git remote --help -> git remote remove orgin -> orgin 삭제
+-> git push -u orgin master // 업로드 다운로드 개념, 내가 작업하고 잇는 로컬저장소 기준으로 원격 저장소로 나의 작업을 보냄
+   // 체크아웃되어있는 orgin(주소)저장소의 master브랜치로 동기화(push)시킨다 -u는 처음에만 써주고, 다음부턴 git push만 해주면 자동으로 넘어감
+----------여기까지 백업개념
+----------다운로드개념
+mkdir gotohell2 -> cd gotohell2 -> git clone 주소(원격저장소) . // 현재 디렉토리로 클로닝 시작(동기화)
+->git remote -v // 원격저장소의 연결상태 및 별명을 확인가능 
+
+* 하나의 원격저장소를 중심으로 두개의 지역저장소가 소스코드를 동기화하는 방법 
+https://opentutorials.org/course/2708/15428
+여러대의 컴퓨터를 쓰는 경우, 회사에서 하다가 퇴근해서 집컴으로 하고싶을 떄
+git clone 주소복사 git_home //git_home 집컴 디렉토리에 원격저장소 내용 복제
+git clone 주소복사 git_office // git_office 회사 ....
+
+--집컴(지역저장소)--
+git log -> vim f1.txt -> git commit -am 3 (git commit --amend //잘못 넣은 커밋 수정가능) 
+-> git push -> 원격 저장소에 업데이트 완료
+--회사--
+git pull //원격저장소의 내용을 회사라는 로컬저장소로 떙겨온다
+-> git log -> vim f1.txt -> git commut -am '4' -> git push 
+이런식으로 여러 대의 컴퓨터로 버전관리를 하면서 백업 가능
+작업하기 전에 pull로 땡겨오고 끝나면 push하는 습관을 들인다
